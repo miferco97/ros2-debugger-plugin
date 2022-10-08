@@ -6,7 +6,11 @@ function M.parse_launch_file(file_path)
     launch_file:close()
     local launch_file_lines = {}
 --   Try to run python script to parse launch file
-    local python_script = io.popen("python3 " .. file_path .. " --print")
+    local python_script = io.popen("ros2 launch " .. file_path .. " --print")
     return python_script:read("*all")
 end
+
+
+
 return M
+

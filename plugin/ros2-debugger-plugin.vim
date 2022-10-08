@@ -22,3 +22,5 @@ command! -nargs=0 Ros2SayHello
       \ lua require("ros2-debugger-plugin").say_hello()
 command! -nargs=1 -complete=file Ros2LaunchDebugger
       \ lua require('ros2-debugger-plugin').launch_debugger(vim.fn.expand("<args>"))
+command! -nargs=1 Ros2GenerateVimspectorFile
+      \ lua require("ros2-debugger-plugin").generate_vimspector_file(vim.fn.expand("<args>") ,"linux-debug" , "--ros-args -r __ns:=/")
