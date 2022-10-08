@@ -1,6 +1,6 @@
 -- Imports the plugin's additional Lua modules.
-local lib = require("ros2-launch-debugger-plugin.lib")
-local parser = require("ros2-launch-debugger-plugin.parser")
+local lib = require("ros2-debugger-plugin.lib")
+local parser = require("ros2-debugger-plugin.parser")
 
 -- Creates an object for the module. All of the module's
 -- functions are associated with this object, which is
