@@ -15,9 +15,11 @@ function M.parse_launch_file(file_path)
       if first_line then
         first_line = false
       else
-      if line.match(line, "'.*'") then
+      if line.match(line, "'.*':.*") or line.match(line, ".*default: '.*'") then
         local param = line.match(line, "'.*'")
+        if param ~= nil then
             table.insert(params, param)
+          end 
         end
       end
     end
@@ -45,9 +47,9 @@ function M.parse_launch_file(file_path)
   for j = 1, #names do
     local str = ""
     if names[j] == "'namespace'" then
-      str = ',"-r"," __ns:="' .. default_values[j] .. '"'
+      str = ',\n\t\t\t\t"-r"," __ns:="' .. default_values[j] .. '"'
     else
-      str = ',"-p","' .. string.sub(names[j],2,-2) .. ":=" .. string.sub(default_values[j],2,-2) .. '"'
+      str = ',\n\t\t\t\t"-p","' .. string.sub(names[j],2,-2) .. ":=" .. string.sub(default_values[j],2,-2) .. '"'
     end
     final_params_str = final_params_str .. str
   end
