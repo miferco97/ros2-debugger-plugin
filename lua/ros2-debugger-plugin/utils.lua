@@ -12,7 +12,7 @@ function M.generate_vimspector_file(program_name,  program_path_additions,progra
       "configuration": {
         "request": "launch",
         "program": "${workspaceFolder}/build/]] .. program_path_additions .. [[/]] .. program_name .. [[",
-        "args": ["]] .. program_args .. [["],
+        "args": []] .. program_args .. [[],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],

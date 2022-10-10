@@ -45,14 +45,14 @@ function M.parse_launch_file(file_path)
   for j = 1, #names do
     local str = ""
     if names[j] == "'namespace'" then
-      str = "--r __ns:=" .. default_values[j] .. " "
+      str = ',"-r"," __ns:="' .. default_values[j] .. '"'
     else
-      str = " --p " .. string.sub(names[j],2,-2) .. ":=" .. string.sub(default_values[j],2,-2)
+      str = ',"-p","' .. string.sub(names[j],2,-2) .. ":=" .. string.sub(default_values[j],2,-2) .. '"'
     end
     final_params_str = final_params_str .. str
   end
 
-  return "--ros-args " .. final_params_str
+  return '"--ros-args"' .. final_params_str
 
 end
 
